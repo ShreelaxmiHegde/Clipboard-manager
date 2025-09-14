@@ -1,0 +1,72 @@
+body {
+    background-color: black;
+    
+}
+
+.main {
+    height: 500px;
+    width: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    border: 2px solid #89e8ebe5;
+    border-radius: 2rem;
+}
+
+h1 {
+    padding: 0.75rem;
+    background: #89e8ebe5;
+    border-radius: 2rem;
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.clipboard {
+    padding: 0.5rem;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+.clipboard-item {
+    box-shadow: 0 10px 20px rgba(38, 40, 49, 0.711);
+    background-color: rgba(64, 73, 86, 0.236);
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid #89e8ebe5;
+    color: white;
+    position: relative;
+}
+
+.clipboard-item:hover {
+    cursor: pointer;
+    box-shadow: 1px 5px 20px #89e8eb70;
+}
+
+.para {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
+}
+
+.clipboard-item::after {
+    content: "Click to copy";
+    position: absolute;
+    bottom: 50%;  /* show above the text */
+    left: 50%;
+    transform: translateX(75%);
+    background: #333;
+    color: #fff;
+    padding: 4px 6px;
+    border-radius: 0.5rem;
+    white-space: nowrap;
+    font-size: 0.75rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.clipboard-item:hover::after {
+    opacity: 1;
+    content: var(--tooltip-text, "Click to copy");
+}
